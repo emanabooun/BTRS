@@ -1,0 +1,50 @@
+﻿@model IEnumerable<BTRS.Models.Bus>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Bus</h1>
+
+<p>
+    <a asp-action="Create">Create Bus</a>
+    <a asp-action="Create" asp-controller="Trip">New Trip</a>
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BusId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CaptainName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfSeats)
+            </th>
+            <th>
+               
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+               @Html.DisplayFor(modelItem => item.BusId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CaptainName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfSeats)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BusId">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.BusId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

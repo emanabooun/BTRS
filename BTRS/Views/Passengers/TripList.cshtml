@@ -1,0 +1,55 @@
+﻿@model IEnumerable<BTRS.Models.Trip>
+
+@{
+    ViewData["Title"] = "TripList";
+}
+
+<h2>Trip List</h2>
+@Html.ActionLink("Booking List", "bookingList", "Passengers")
+
+<table class="table">
+    <thead>
+        <tr>
+            @* <th>
+                @Html.DisplayNameFor(model => model.TripId)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.Destination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.TripId)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusNumber)
+            </td>
+            <td>
+                @Html.ActionLink("Booking", "Booking", new { id=item.TripId }, new { @class = "btn btn-primary" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

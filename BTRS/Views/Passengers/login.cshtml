@@ -1,0 +1,34 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using (Html.BeginForm("login", "Passengers", FormMethod.Post))
+{
+    <h3>login</h3>
+    <table>
+        <tr>
+            <td>
+                Username
+            </td>
+            <td>
+                @Html.TextBox("Username",null,new{@type="text"})
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Password
+            </td>
+            <td>
+                @Html.TextBox("Password",null,new{@type="password"})
+            </td>
+        </tr>
+    </table>
+    @Html.TextBox("login","login",new{@type="submit"})
+}
+
+
+@Html.ActionLink("SignUp", "SignUp", new { @class = "btn btn-link" })
+
+
+@TempData["Msg"]
